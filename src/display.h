@@ -2,6 +2,7 @@
 #ifndef _DISPLAY_
 #include "arduino.h"
 
+
 enum class DisplayMode{
   WaitForAck,
   AckReceived,
@@ -13,9 +14,9 @@ enum class DisplayMode{
 
 class Display{
   public:
-    Display(int PinR, int PinG, int PinB);
+    void init(int PinR, int PinG, int PinB);
 
-    /* Udpdate the blink and toggle states */
+    /* Update the blink and toggle states */
     void update();
 
     /***
@@ -30,7 +31,8 @@ class Display{
     int mTogglePeriod;
     int mToggledTime; /* The value of millis(), since toggled the last time */
     int mBlinkPeriod;
-    
+    int mPinR, mPinG, mPinB;
+    int mR, mG, mB;
   
 };
 
