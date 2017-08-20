@@ -5,6 +5,7 @@ void Display::init(int PinR, int PinG, int PinB){
   mPinG = PinG;
   mPinB = PinB;
   mToggleActivated = 0;
+  analogWriteFreq(10000);
 }
 void Display::update(){
   int t = millis() - mTimeInMode;
@@ -31,6 +32,7 @@ void Display::update(){
     }
     else{
       valR = mR - (mR * (t - mBlinkPeriod/2)) / (mBlinkPeriod/2) ;
+      // val = mR * ( 1 - (t-mBlinkPeriod/2) / (mBlinkPeriod/2))
       valG = mG - (mG * (t - mBlinkPeriod/2)) / (mBlinkPeriod/2) ;
       valB = mB - (mB * (t - mBlinkPeriod/2)) / (mBlinkPeriod/2) ;    
     }
