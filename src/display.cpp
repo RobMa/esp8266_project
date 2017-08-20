@@ -6,6 +6,8 @@ void Display::init(int PinR, int PinG, int PinB){
   mPinB = PinB;
   mToggleActivated = 0;
   analogWriteFreq(10000);
+
+  /// TODO: use ticker library to call update with 1 kHz.
 }
 void Display::update(){
   int t = millis() - mTimeInMode;
